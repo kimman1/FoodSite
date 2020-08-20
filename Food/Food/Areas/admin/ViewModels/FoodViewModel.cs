@@ -40,7 +40,19 @@ namespace Areas.admin.ViewModels
             fvdm.FoodName = food.FoodName;
             fvdm.Address = food.Address;
             fvdm.CityName = food.City.CityName;
+            fvdm.FoodCateName = food.FoodCategory.FoodCategoryName;
             return fvdm;
+        }
+        public Food.Food ConvertToFood(FoodViewModel fvmd)
+        {
+            
+            Food.Food food = new Food.Food();
+            food.FoodID = fvmd.FoodID;
+            food.FoodName = fvmd.FoodName;
+            food.Address = fvmd.Address;
+            food.CityID = db.Cities.Where(s => s.CityName.Trim().Equals(fvmd.CityName.Trim())).Select(s => s.CityID).FirstOrDefault();
+            food.FoodCategoryID = db.FoodCategories.Where(s => s.FoodCategoryName.Trim().Equals(fvmd.FoodCateName.Trim())).Select(s => s.FoodCategoryID).FirstOrDefault();
+            return food;
         }
     }
 }
