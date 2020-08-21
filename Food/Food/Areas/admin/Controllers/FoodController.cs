@@ -13,6 +13,7 @@ namespace Food.Areas.admin.Controllers
     public class FoodController : Controller
     {
         diadiemanuongEntities db = new diadiemanuongEntities();
+        int foodid = -1;
         public ActionResult Index()
         {
             FoodViewModel fd = new FoodViewModel();
@@ -86,6 +87,36 @@ namespace Food.Areas.admin.Controllers
             db.Foods.Remove(p);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult ImageDetails(int id)
+        {
+            foodid = id;
+            ViewBag.Foodid = id;
+            return View(db.Images.Where(s=>s.FoodID == id));
+        }
+        public ActionResult CreateImageFood()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateImageFood(int id,HttpPostedFileBase upload)
+        {
+            Image image = new Image();
+            if (Request.Files != null && Request.Files.Count > 0)
+            {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    string path = Server.MapPath("~/Image/" + id.ToString() + "/");
+                    string filename = upload.FileName;
+                    upload.SaveAs(path + filename);
+                    image.FoodID = id;
+                    image.ImageName = filename;
+                    db.Images.Add(image);
+                    db.SaveChanges();
+                    return RedirectToAction("ImageDetails", new { id = id });
+                }
+            }
+            return View();
         }
     }
 }

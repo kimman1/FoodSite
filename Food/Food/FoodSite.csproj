@@ -266,6 +266,8 @@
     <Content Include="Areas\admin\Views\Food\Edit.cshtml" />
     <Content Include="Areas\admin\Views\Food\Delete.cshtml" />
     <Content Include="Areas\admin\Views\Food\Create.cshtml" />
+    <Content Include="Areas\admin\Views\Food\ImageDetails.cshtml" />
+    <Content Include="Areas\admin\Views\Food\CreateImageFood.cshtml" />
     <None Include="Properties\PublishProfiles\diadiemanuong.somme.com.pubxml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -401,6 +403,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
+    <Folder Include="Areas\admin\Views\Image\" />
     <Folder Include="Areas\admin\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
