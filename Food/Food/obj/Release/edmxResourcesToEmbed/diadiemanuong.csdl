@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="diadiemanuongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Foods" Relationship="Self.FK_Food_City" FromRole="City" ToRole="Food" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="FoodID" />
+    </Key>
+    <Property Name="FoodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FoodImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CityID" Type="Int32" />
+    <Property Name="FoodCategoryID" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Food_City" FromRole="Food" ToRole="City" />
+    <NavigationProperty Name="FoodCategory" Relationship="Self.FK_Food_FoodCategory" FromRole="Food" ToRole="FoodCategory" />
+    <NavigationProperty Name="Images" Relationship="diadiemanuongModel.FK_Image_Food" FromRole="Food" ToRole="Image" />
+  </EntityType>
+  <EntityType Name="FoodCategory">
+    <Key>
+      <PropertyRef Name="FoodCategoryID" />
+    </Key>
+    <Property Name="FoodCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FoodCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Foods" Relationship="Self.FK_Food_FoodCategory" FromRole="FoodCategory" ToRole="Food" />
+  </EntityType>
+  <Association Name="FK_Food_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Food_FoodCategory">
+    <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="0..1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodCategory">
+        <PropertyRef Name="FoodCategoryID" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="FoodCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="diadiemanuongEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="FoodCategories" EntityType="Self.FoodCategory" />
+    <AssociationSet Name="FK_Food_City" Association="Self.FK_Food_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Food_FoodCategory" Association="Self.FK_Food_FoodCategory">
+      <End Role="FoodCategory" EntitySet="FoodCategories" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+    <EntitySet Name="Images" EntityType="diadiemanuongModel.Image" />
+    <AssociationSet Name="FK_Image_Food" Association="diadiemanuongModel.FK_Image_Food">
+      <End Role="Food" EntitySet="Foods" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageName" Type="String" MaxLength="65" FixedLength="false" Unicode="true" />
+    <Property Name="FoodID" Type="Int32" />
+    <NavigationProperty Name="Food" Relationship="diadiemanuongModel.FK_Image_Food" FromRole="Image" ToRole="Food" />
+  </EntityType>
+  <Association Name="FK_Image_Food">
+    <End Type="diadiemanuongModel.Food" Role="Food" Multiplicity="0..1" />
+    <End Type="diadiemanuongModel.Image" Role="Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="FoodID" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="FoodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

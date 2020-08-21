@@ -264,6 +264,9 @@
     <Content Include="Areas\admin\Views\City\Delete.cshtml" />
     <Content Include="Areas\admin\Views\Food\Index.cshtml" />
     <Content Include="Areas\admin\Views\Food\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\Food\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\Food\Create.cshtml" />
+    <None Include="Properties\PublishProfiles\diadiemanuong.somme.com.pubxml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

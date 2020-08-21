@@ -33,7 +33,7 @@ namespace Areas.admin.ViewModels
                                         });
             return fdViewModel;
         }
-        public FoodViewModel ConvertFoodViewModel(Food.Food food)
+        public FoodViewModel ConvertToFoodViewModel(Food.Food food)
         {
             FoodViewModel fvdm = new FoodViewModel();
             fvdm.FoodID = food.FoodID;
@@ -50,8 +50,8 @@ namespace Areas.admin.ViewModels
             food.FoodID = fvmd.FoodID;
             food.FoodName = fvmd.FoodName;
             food.Address = fvmd.Address;
-            food.CityID = db.Cities.Where(s => s.CityName.Trim().Equals(fvmd.CityName.Trim())).Select(s => s.CityID).FirstOrDefault();
-            food.FoodCategoryID = db.FoodCategories.Where(s => s.FoodCategoryName.Trim().Equals(fvmd.FoodCateName.Trim())).Select(s => s.FoodCategoryID).FirstOrDefault();
+            food.CityID = Convert.ToInt32(fvmd.CityName);
+            food.FoodCategoryID = Convert.ToInt32(fvmd.FoodCateName);
             return food;
         }
     }
