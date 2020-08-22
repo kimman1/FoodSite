@@ -2,6 +2,7 @@
 using Food;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -9,10 +10,15 @@ namespace Areas.admin.ViewModels
 {
     public class FoodViewModel
     {
+        [DisplayName("Food ID")]
         public int FoodID { get; set; }
+        [DisplayName("Tên Món Ăn")]
         public string FoodName { get; set; }
+        [DisplayName("Địa Chỉ")]
         public string Address { get; set; }
+        [DisplayName("Thành Phố")]
         public string CityName { get; set; }
+        [DisplayName("Loại Món Ăn")]
         public string FoodCateName { get; set; }
         diadiemanuongEntities db;
         public FoodViewModel()

@@ -268,6 +268,7 @@
     <Content Include="Areas\admin\Views\Food\Create.cshtml" />
     <Content Include="Areas\admin\Views\Food\ImageDetails.cshtml" />
     <Content Include="Areas\admin\Views\Food\CreateImageFood.cshtml" />
+    <Content Include="Areas\admin\Views\Food\DeleteImage.cshtml" />
     <None Include="Properties\PublishProfiles\diadiemanuong.somme.com.pubxml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />

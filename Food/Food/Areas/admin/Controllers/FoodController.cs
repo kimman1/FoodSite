@@ -96,27 +96,51 @@ namespace Food.Areas.admin.Controllers
         }
         public ActionResult CreateImageFood()
         {
+            
             return View();
         }
         [HttpPost]
-        public ActionResult CreateImageFood(int id,HttpPostedFileBase upload)
+        public ActionResult CreateImageFood(int id,List<HttpPostedFileBase> upload)
         {
-            Image image = new Image();
+            
             if (Request.Files != null && Request.Files.Count > 0)
             {
-                if (upload != null && upload.ContentLength > 0)
+                foreach (HttpPostedFileBase file in upload)
                 {
-                    string path = Server.MapPath("~/Image/" + id.ToString() + "/");
-                    string filename = upload.FileName;
-                    upload.SaveAs(path + filename);
-                    image.FoodID = id;
-                    image.ImageName = filename;
-                    db.Images.Add(image);
-                    db.SaveChanges();
-                    return RedirectToAction("ImageDetails", new { id = id });
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        System.IO.Directory.CreateDirectory(Server.MapPath("~/Image/" + id));
+                        Image image = new Image();
+                        string path = Server.MapPath("~/Image/" + id + "/");
+                        string filename = file.FileName;
+                        file.SaveAs(path + filename);
+                        image.FoodID = id;
+                        image.ImageName = filename;
+                        db.Images.Add(image);
+                    }
                 }
+                db.SaveChanges();
+                return RedirectToAction("ImageDetails", new { id = id });
             }
             return View();
+        }
+        public ActionResult DeleteImage(int id)
+        {
+            return View(db.Images.Where(s => s.ImageID == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult DeleteImage(int id, FormCollection fc)
+        {
+            Image img = db.Images.Where(s => s.ImageID == id).FirstOrDefault();
+            int FoodID = (int)img.FoodID;
+            string fullPath = Request.MapPath("~/Image/"+ FoodID + "/" + img.ImageName);
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
+            }
+            db.Images.Remove(img);
+            db.SaveChanges();
+            return RedirectToAction("ImageDetails", new {id = FoodID });
         }
     }
 }
