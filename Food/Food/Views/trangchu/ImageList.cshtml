@@ -25,14 +25,14 @@
 </head>
 <body>
     <div class="container text-center">
-        <p>@ViewData["FoodName"]</p>
-        <p>@ViewData["FoodAddress"]</p>
-        <p>@ViewData["FoodCity"]</p>
+        <p>Tên món ăn: @ViewData["FoodName"]</p>
+        <p>Địa chỉ: @ViewData["FoodAddress"]</p>
+        <p>Thành Phố: @ViewData["FoodCity"]</p>
         <hr class="my-5" />
         @foreach (var item in Model)
         {
             <a href="~/Image/@Html.DisplayFor(modelItem => item.ImageName)" data-fancybox="images" data-caption="Backpackers following a dirt trail">
-                <img src="~/Image/@item.ImageName" style="width:250px; height:250px;" />
+                <img src="~/Image/@item.FoodID/@item.ImageName" style="width:250px; height:250px;" />
             </a>
         }
     </div>

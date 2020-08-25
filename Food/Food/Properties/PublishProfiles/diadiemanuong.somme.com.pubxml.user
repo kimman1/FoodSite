@@ -25,14 +25,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/admin/Views/Food/Create.cshtml">
       <publishTime>08/21/2020 14:05:04</publishTime>
     </File>
+    <File Include="Areas/admin/Views/Food/CreateImageFood.cshtml">
+      <publishTime>08/25/2020 14:42:29</publishTime>
+    </File>
     <File Include="Areas/admin/Views/Food/Delete.cshtml">
       <publishTime>08/21/2020 13:42:54</publishTime>
     </File>
+    <File Include="Areas/admin/Views/Food/DeleteImage.cshtml">
+      <publishTime>08/25/2020 13:45:42</publishTime>
+    </File>
     <File Include="Areas/admin/Views/Food/Edit.cshtml">
-      <publishTime>08/21/2020 13:06:55</publishTime>
+      <publishTime>08/25/2020 13:45:42</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/Food/ImageDetails.cshtml">
+      <publishTime>08/25/2020 13:45:42</publishTime>
     </File>
     <File Include="Areas/admin/Views/Food/Index.cshtml">
-      <publishTime>08/21/2020 14:21:10</publishTime>
+      <publishTime>08/21/2020 20:06:24</publishTime>
     </File>
     <File Include="Areas/admin/Views/web.config">
       <publishTime>08/20/2020 14:05:58</publishTime>
@@ -50,10 +59,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/16/2020 20:38:56</publishTime>
     </File>
     <File Include="bin/Food.dll">
-      <publishTime>08/21/2020 15:04:06</publishTime>
+      <publishTime>08/25/2020 15:16:59</publishTime>
     </File>
     <File Include="bin/Food.pdb">
-      <publishTime>08/21/2020 15:04:06</publishTime>
+      <publishTime>08/25/2020 15:16:59</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>08/07/2020 21:52:58</publishTime>
@@ -710,22 +719,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/19/2020 15:19:07</publishTime>
     </File>
     <File Include="Views/trangchu/Details.cshtml">
-      <publishTime>08/19/2020 16:05:22</publishTime>
+      <publishTime>08/25/2020 15:06:10</publishTime>
     </File>
     <File Include="Views/trangchu/FoodCategoryDetails.cshtml">
-      <publishTime>08/20/2020 13:25:24</publishTime>
+      <publishTime>08/25/2020 15:08:02</publishTime>
     </File>
     <File Include="Views/trangchu/ImageList.cshtml">
-      <publishTime>08/20/2020 14:03:54</publishTime>
+      <publishTime>08/25/2020 15:16:40</publishTime>
     </File>
     <File Include="Views/trangchu/Index.cshtml">
-      <publishTime>08/20/2020 13:09:09</publishTime>
+      <publishTime>08/25/2020 15:00:44</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>08/19/2020 15:19:07</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/21/2020 14:24:49</publishTime>
+      <publishTime>08/25/2020 14:08:31</publishTime>
     </File>
     <File Include="webfonts/fa-brands-400.eot">
       <publishTime>08/19/2020 15:51:05</publishTime>

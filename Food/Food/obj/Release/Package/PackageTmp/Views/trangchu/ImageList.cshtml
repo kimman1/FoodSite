@@ -25,9 +25,9 @@
 </head>
 <body>
     <div class="container text-center">
-        <p>@ViewData["FoodName"]</p>
-        <p>@ViewData["FoodAddress"]</p>
-        <p>@ViewData["FoodCity"]</p>
+        <p>Tên món ăn: @ViewData["FoodName"]</p>
+        <p>Địa chỉ: @ViewData["FoodAddress"]</p>
+        <p>Thành Phố: @ViewData["FoodCity"]</p>
         <hr class="my-5" />
         @foreach (var item in Model)
         {
