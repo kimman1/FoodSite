@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Controllers\CityController.cs" />
+    <Compile Include="Areas\admin\Controllers\FoodCatController.cs" />
     <Compile Include="Areas\admin\Controllers\FoodController.cs" />
     <Compile Include="Areas\admin\ViewModels\FoodViewModel.cs" />
     <Compile Include="City.cs">
@@ -269,6 +270,10 @@
     <Content Include="Areas\admin\Views\Food\ImageDetails.cshtml" />
     <Content Include="Areas\admin\Views\Food\CreateImageFood.cshtml" />
     <Content Include="Areas\admin\Views\Food\DeleteImage.cshtml" />
+    <Content Include="Areas\admin\Views\FoodCat\Index.cshtml" />
+    <Content Include="Areas\admin\Views\FoodCat\Create.cshtml" />
+    <Content Include="Areas\admin\Views\FoodCat\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\FoodCat\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\diadiemanuong.somme.com.pubxml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
